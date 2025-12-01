@@ -77,7 +77,7 @@
         </div>
 
         <div class="emergency-banner">
-          <div class="emergency-icon"></div>
+          <div class="emergency-icon">&#128227;</div>
           <div>
             <h4>Need Immediate Help?</h4>
             <p>

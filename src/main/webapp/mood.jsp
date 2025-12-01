@@ -63,7 +63,7 @@
                 class="mood-button mood-great"
                 data-mood="great"
               >
-                <span class="mood-emoji"></span>
+                <span class="mood-emoji">&#128522;</span>
                 <span class="mood-label">Great</span>
               </button>
               <button
@@ -71,7 +71,7 @@
                 class="mood-button mood-good"
                 data-mood="good"
               >
-                <span class="mood-emoji"></span>
+                <span class="mood-emoji">&#128578;</span>
                 <span class="mood-label">Good</span>
               </button>
               <button
@@ -79,7 +79,7 @@
                 class="mood-button mood-okay"
                 data-mood="okay"
               >
-                <span class="mood-emoji"></span>
+                <span class="mood-emoji">&#128528;</span>
                 <span class="mood-label">Okay</span>
               </button>
               <button
@@ -87,7 +87,7 @@
                 class="mood-button mood-bad"
                 data-mood="bad"
               >
-                <span class="mood-emoji"></span>
+                <span class="mood-emoji">&#128543;</span>
                 <span class="mood-label">Bad</span>
               </button>
               <button
@@ -95,7 +95,7 @@
                 class="mood-button mood-terrible"
                 data-mood="terrible"
               >
-                <span class="mood-emoji"></span>
+                <span class="mood-emoji">&#128546;</span>
                 <span class="mood-label">Terrible</span>
               </button>
             </div>
@@ -116,7 +116,7 @@
         </div>
 
         <div class="emergency-banner">
-          <div class="emergency-icon"></div>
+          <div class="emergency-icon">&#128161;</div>
           <div>
             <h4>Insights & Recommendations</h4>
             <div class="emergency-contacts">
