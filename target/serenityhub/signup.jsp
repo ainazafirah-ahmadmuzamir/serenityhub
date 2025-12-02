@@ -1,4 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%@ page
+isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -284,12 +286,12 @@
 
         <form action="signup" method="post">
           <div class="field">
-            <label for="name">Full Name</label>
+            <label for="name">Name</label>
             <input
               id="name"
               name="fullname"
               type="text"
-              placeholder="Jane Doe"
+              placeholder="Jane"
               required
             />
           </div>
@@ -317,9 +319,9 @@
           </div>
 
           <div class="field">
-            <label for="password">Confirm Password</label>
+            <label for="confirm">Confirm Password</label>
             <input
-              id="password"
+              id="confirm"
               name="confirm"
               type="password"
               placeholder="Confirm password"
