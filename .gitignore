@@ -1,0 +1,12 @@
+# Maven
+target/
+
+# Compiled class files
+*.class
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
