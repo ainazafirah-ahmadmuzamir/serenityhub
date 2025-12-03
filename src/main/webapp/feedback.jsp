@@ -8,19 +8,39 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/feedback.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="home.jsp" class="logo">SerenityHub</a>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <div class="nav-links" id="navLinks">
-                <a href="home.jsp">Home</a>
-                <a href="counselling.jsp">Counselling</a>
-                <a href="feedback" class="active">Feedback</a>
-                <a href="profile.jsp">Profile</a>
+        <!-- header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <img src="images/welcome.png" width="40" height="40" />
             </div>
+            <div class="logo-text">
+              <h1>SerenityHub</h1>
+              <p class="logo-subtitle">UTM Mental Health Literacy Hub</p>
+            </div>
+          </div>
+          <div class="header-buttons">
+            <a href="home.jsp" class="nav-item active">
+              <span>Home</span>
+            </a>
+            <a href="assessment.jsp" class="nav-item">
+              <span>Self-Assessment</span>
+            </a>
+            <a href="" class="nav-item">
+              <span>ChatBot</span>
+            </a>
+            <a href="feedback.jsp" class="nav-item">
+              <span>Feedback</span>
+            </a>
+            <a href="index.jsp" class="nav-item">
+              <span>Logout</span>
+            </a>
+          </div>
         </div>
-    </nav>
+      </div>
+    </header>
 
     <!-- Success Message (if any) -->
     <% if (request.getAttribute("success") != null) { %>
