@@ -58,7 +58,6 @@
                 past week. There are no right or wrong answers. Do not spend too
                 much time on any statement.
               </p>
-              <br />
               <p>The rating scale is as follows:</p>
               <p>0 - Did not apply to me at all</p>
               <p>1 - Applied to me to some degree, or some of the time</p>
@@ -74,6 +73,7 @@
         <div class="emergency-banner">
           <div>
             <h4>Answer All 21 Questions</h4>
+            <br>
             <div class="dass-contents">
               <form id="dass21Form">
                 <div class="question">
