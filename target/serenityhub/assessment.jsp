@@ -30,7 +30,7 @@
             <a href="assessment.jsp" class="nav-item active">
               <span>Self-Assessment</span>
             </a>
-            <a href="" class="nav-item">
+            <a href="chatbot.jsp" class="nav-item">
               <span>ChatBot</span>
             </a>
             <a href="" class="nav-item">
