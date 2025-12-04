@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SerenityHub | Self-Assessment</title>
-      <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="<%= request.getContextPath() %>/assets/css/styles.css"
+    />
   </head>
   <body>
     <!-- header -->
@@ -73,7 +76,7 @@
         <div class="emergency-banner">
           <div>
             <h4>Answer All 21 Questions</h4>
-            <br>
+            <br />
             <div class="dass-contents">
               <form id="dass21Form">
                 <div class="question">
@@ -284,6 +287,10 @@
                     <label><input type="radio" name="q21" value="3" />3</label>
                   </div>
                 </div>
+                <br />
+                <button type="submit" class="btn btn-primary btn-block">
+                  Submit
+                </button>
               </form>
             </div>
           </div>
