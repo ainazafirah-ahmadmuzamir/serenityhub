@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="resource-text">
                                         <strong>National Helpline</strong>
-                                        <span>Call 988 for support</span>
+                                        <span>Call 911 for support</span>
                                     </div>
                                 </div>
                                 <div class="resource-item">

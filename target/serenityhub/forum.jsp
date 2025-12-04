@@ -54,10 +54,10 @@
                 <div class="forum-actions">
                     <div class="forum-search">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search discussions...">
+                        <input type="text" placeholder="Search forum...">
                     </div>
                     <button class="create-topic-btn" onclick="showNewTopicModal()">
-                        <i class="fas fa-plus"></i> New Discussion
+                        <i class="fas fa-plus"></i> New Forum
                     </button>
                 </div>
             </div>
@@ -80,21 +80,21 @@
             
             <!-- Categories -->
             <div class="section-header">
-                <h2>Support Categories</h2>
+                <h2>Forum Topic or Categories</h2>
                 <a href="#" class="view-all-btn">
                     View All Categories <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             
             <div class="categories-grid">
-                <a href="forum-category.jsp?cat=anxiety" class="category-card">
+                <a href="forum-category.jsp?cat=anxiety&page=feed" class="category-card">
                     <div class="category-header">
                         <div class="category-icon category-1">
                             <i class="fas fa-brain"></i>
                         </div>
                         <div class="category-info">
                             <h3>Anxiety Support</h3>
-                            <p class="category-stats">245 discussions • 1.2k replies</p>
+                            <p class="category-stats">245 discussions 1.2k replies</p>
                         </div>
                     </div>
                     <p class="category-description">Share experiences and coping strategies for anxiety management. A safe space for those dealing with anxiety disorders.</p>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="category-info">
                             <h3>Depression Discussion</h3>
-                            <p class="category-stats">189 discussions • 890 replies</p>
+                            <p class="category-stats">189 discussions 890 replies</p>
                         </div>
                     </div>
                     <p class="category-description">A safe space to talk about depression, share recovery journeys, and find hope in shared experiences.</p>
@@ -130,7 +130,7 @@
                         </div>
                         <div class="category-info">
                             <h3>Stress Management</h3>
-                            <p class="category-stats">312 discussions • 1.5k replies</p>
+                            <p class="category-stats">312 discussions 1.5k replies</p>
                         </div>
                     </div>
                     <p class="category-description">Techniques and tips for managing academic, social, and personal stress in student life.</p>
@@ -148,7 +148,7 @@
                         </div>
                         <div class="category-info">
                             <h3>Success Stories</h3>
-                            <p class="category-stats">156 discussions • 720 replies</p>
+                            <p class="category-stats">156 discussions 720 replies</p>
                         </div>
                     </div>
                     <p class="category-description">Share your mental health journey, recovery milestones, and inspire others with your progress.</p>
@@ -158,94 +158,6 @@
                         <span class="topic-tag">Progress updates</span>
                     </div>
                 </a>
-            </div>
-            
-            <!-- Recent Discussions -->
-            <div class="recent-discussions">
-                <div class="section-header">
-                    <h2>Recent Discussions</h2>
-                    <a href="forum-all-topics.jsp" class="view-all-btn">
-                        View All Discussions <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="topics-table">
-                    <div class="table-header">
-                        <span>Topic</span>
-                        <span>Author</span>
-                        <span>Replies/Views</span>
-                        <span>Last Activity</span>
-                    </div>
-                    
-                    <a href="forum-topic.jsp?id=1" class="table-row">
-                        <div class="topic-title">
-                            <div class="topic-icon-small category-1">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="topic-text">
-                                <h4>How do you cope with morning anxiety before classes?</h4>
-                                <p class="topic-excerpt">Looking for tips to manage anxiety that peaks in the morning...</p>
-                            </div>
-                        </div>
-                        <div class="topic-author">
-                            <div class="author-avatar">JS</div>
-                            <span>Jane Smith</span>
-                        </div>
-                        <div class="topic-stats">
-                            <i class="fas fa-comment"></i> 24
-                            <i class="fas fa-eye"></i> 156
-                        </div>
-                        <div class="topic-latest">
-                            <span class="topic-indicator"></span> 2 hours ago
-                        </div>
-                    </a>
-                    
-                    <a href="forum-topic.jsp?id=2" class="table-row">
-                        <div class="topic-title">
-                            <div class="topic-icon-small category-2">
-                                <i class="fas fa-cloud-rain"></i>
-                            </div>
-                            <div class="topic-text">
-                                <h4>My journey with therapy - 6 month update</h4>
-                                <p class="topic-excerpt">Sharing my progress after 6 months of consistent therapy sessions...</p>
-                            </div>
-                        </div>
-                        <div class="topic-author">
-                            <div class="author-avatar">AJ</div>
-                            <span>Alex Johnson</span>
-                        </div>
-                        <div class="topic-stats">
-                            <i class="fas fa-comment"></i> 42
-                            <i class="fas fa-eye"></i> 289
-                        </div>
-                        <div class="topic-latest">
-                            <span class="topic-indicator"></span> 5 hours ago
-                        </div>
-                    </a>
-                    
-                    <a href="forum-topic.jsp?id=3" class="table-row">
-                        <div class="topic-title">
-                            <div class="topic-icon-small category-3">
-                                <i class="fas fa-weight"></i>
-                            </div>
-                            <div class="topic-text">
-                                <h4>Managing final exam stress - tips that work</h4>
-                                <p class="topic-excerpt">Share your best study breaks and stress relief techniques...</p>
-                            </div>
-                        </div>
-                        <div class="topic-author">
-                            <div class="author-avatar">RS</div>
-                            <span>Rohit Singh</span>
-                        </div>
-                        <div class="topic-stats">
-                            <i class="fas fa-comment"></i> 18
-                            <i class="fas fa-eye"></i> 124
-                        </div>
-                        <div class="topic-latest">
-                            <span class="topic-indicator"></span> 1 day ago
-                        </div>
-                    </a>
-                </div>
             </div>
 
     <!-- New Topic Modal -->
