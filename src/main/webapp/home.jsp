@@ -56,7 +56,7 @@
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="<%= request.getContextPath() %>/educational-resources"></a>
+              <a href="educational-resource.jsp"></a>
                 <div class="action-icon icon-blue"></div>
                 <p>Browse Educational Resources</p>
               </a>
@@ -68,7 +68,7 @@
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="<%= request.getContextPath() %>/counselling"></a>
+              <a href="counselling.jsp"></a>
                 <div class="action-icon icon-green"></div>
                 <p>Book Counselling</p>
               </a>
