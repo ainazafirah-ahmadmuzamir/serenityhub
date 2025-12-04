@@ -35,6 +35,16 @@ public class SignupServlet extends HttpServlet {
             return;
         }
 
+        final String ADMIN_EMAIL = "admin@gmail.com";
+        final String ADMIN_PASSWORD = "admin123";
+        if (email != null && password != null
+                && email.equalsIgnoreCase(ADMIN_EMAIL)
+                && password.equals(ADMIN_PASSWORD)) {
+            req.setAttribute("error", "Credentials already exists");
+            req.getRequestDispatcher("signup.jsp").forward(req, resp);
+            return;
+        }
+
         boolean isRegistered = UserRepo.register(new User(fullname, email, password));
 
         if (!isRegistered) {
