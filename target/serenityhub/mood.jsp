@@ -54,7 +54,7 @@
           <div class="mood-header">
             <div>
               <h4>How are you feeling today?</h4>
-              <p>Tuesday, November 25, 2025</p>
+              <p id="currentDate">Loading date...</p>
             </div>
           </div>
 
@@ -140,5 +140,24 @@
         </div>
       </div>
     </main>
+    <script>
+      (function () {
+        const el = document.getElementById("currentDate");
+        if (!el) return;
+        const now = new Date();
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        // Use user's locale for formatting; fallback to en-US if unavailable
+        try {
+          el.textContent = now.toLocaleDateString(undefined, options);
+        } catch (e) {
+          el.textContent = now.toLocaleDateString("en-US", options);
+        }
+      })();
+    </script>
   </body>
 </html>
