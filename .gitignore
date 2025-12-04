@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Maven
 target/
 
@@ -10,3 +11,11 @@ target/
 # OS files
 .DS_Store
 Thumbs.db
+=======
+# Maven target directory
+target/
+# VS Code settings
+.vscode/
+# Compiled class files
+*.class
+>>>>>>> origin/main

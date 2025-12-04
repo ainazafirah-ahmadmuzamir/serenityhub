@@ -30,7 +30,7 @@
             <a href="chatbot.jsp" class="nav-item">
               <span>ChatBot</span>
             </a>
-            <a href="feedback.jsp" class="nav-item">
+            <a href="" class="nav-item">
               <span>Feedback</span>
             </a>
             <a href="index.jsp" class="nav-item">
