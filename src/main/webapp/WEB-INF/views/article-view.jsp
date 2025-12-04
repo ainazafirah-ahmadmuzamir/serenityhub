@@ -196,7 +196,7 @@
                     <h1 class="brand-name">SerenityHub</h1>
                 </div>
                 <nav class="nav-links">
-                    <a href="<%= request.getContextPath() %>">Home</a>
+                    <a href="<%= request.getContextPath() %>/home">Home</a>
                     <a href="<%= request.getContextPath() %>/counselling">Counselling</a>
                     <a href="<%= request.getContextPath() %>/educational-resources">Resources</a>
                     <a href="<%= request.getContextPath() %>/profile">Profile</a>

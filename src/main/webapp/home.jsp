@@ -30,7 +30,7 @@
             <a href="assessment.jsp" class="nav-item">
               <span>Self-Assessment</span>
             </a>
-            <a href="" class="nav-item">
+            <a href="chatbot.jsp" class="nav-item">
               <span>ChatBot</span>
             </a>
             <a href="" class="nav-item">
@@ -59,19 +59,19 @@
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="">
+              <a href="<%= request.getContextPath() %>/educational-resources"></a>
                 <div class="action-icon icon-blue"></div>
                 <p>Browse Educational Resources</p>
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="">
+              <a href="forum.jsp">
                 <div class="action-icon icon-purple"></div>
                 <p>Join Peer Support Forum</p>
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="">
+              <a href="<%= request.getContextPath() %>/counselling"></a>
                 <div class="action-icon icon-green"></div>
                 <p>Book Counselling</p>
               </a>
