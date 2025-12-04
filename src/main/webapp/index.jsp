@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SerenityHub | UTM Mental Health Literacy Hub</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/styles.css" />
   </head>
   <body>
     <!-- header -->
@@ -114,7 +114,8 @@
                 ></path>
               </svg>
             </div>
-            <h4>Educational Resources</h4>
+            
+            <a href="<%= request.getContextPath() %>/educational-resources"><h4>Educational Resources</h4></a>
             <p>
               Access curated articles, videos, and guides about mental health
               awareness and self-care strategies.
@@ -179,7 +180,7 @@
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
             </div>
-            <h4>Counselling Requests</h4>
+            <a href="<%= request.getContextPath() %>/counselling"><h4>Counselling Requests</h4>></a>
             <p>
               Book confidential sessions with professional counselors whenever
               you need support.
