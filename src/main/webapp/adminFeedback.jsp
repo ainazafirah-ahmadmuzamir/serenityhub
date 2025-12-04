@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SerenityHub | Feedback Management</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/admin-feedback.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/admin.css">
 </head>
 <body>
     <div class="admin-dashboard-layout">
@@ -13,7 +13,11 @@
         <aside class="admin-sidebar">
             <div class="sidebar-header">
                 <div class="admin-logo">
-                    <div class="logo-icon">S</div>
+                    <div class="logo-icon">
+                        <!-- Make sure this image exists or use text fallback -->
+                        <img src="images/welcome.png" width="40" height="40" />
+                        
+                    </div>
                     <div class="logo-text">
                         <h2>SerenityHub</h2>
                         <p class="logo-subtitle">Admin Portal</p>
@@ -22,14 +26,14 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="<%= request.getContextPath() %>/adminhome" class="nav-item">
+                <a href="<%= request.getContextPath() %>/adminhome.jsp" class="nav-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                     </svg>
                     <span>Analytics Dashboard</span>
                 </a>
-                <a href="<%= request.getContextPath() %>/admin/feedback" class="nav-item active">
+                <a href="<%= request.getContextPath() %>/adminFeedback" class="nav-item active">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
