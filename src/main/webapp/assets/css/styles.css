@@ -631,6 +631,37 @@ a {
     margin-bottom: 2rem;
 }
 
+/* Mood result card (display after submit) */
+.mood-result {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 6px 20px rgba(16, 24, 40, 0.04);
+    margin-top: 1rem;
+}
+
+.mood-result h4 {
+    margin-bottom: 0.75rem;
+}
+
+.mood-result p { margin: 0.5rem 0; color: #374151; }
+
+.mood-chip {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0F172A;
+}
+
+.mood-chip.great { background: linear-gradient(135deg,#D1FAE5,#ECFDF5); color:#065F46; }
+.mood-chip.good { background: linear-gradient(135deg,#ECFCCB,#F7FEE7); color:#365314; }
+.mood-chip.okay { background: linear-gradient(135deg,#FEF9C3,#FFFBEB); color:#92400E; }
+.mood-chip.bad { background: linear-gradient(135deg,#FFEDD5,#FFF7ED); color:#7C2D12; }
+.mood-chip.terrible { background: linear-gradient(135deg,#FEE2E2,#FFF1F2); color:#7F1D1D; }
+
 /* --- DASS21 Questions Layout --- */
 .question {
     display: flex;

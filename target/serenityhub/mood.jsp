@@ -30,7 +30,7 @@
             <a href="assessment.jsp" class="nav-item">
               <span>Self-Assessment</span>
             </a>
-            <a href="" class="nav-item">
+            <a href="chatbot.jsp" class="nav-item">
               <span>ChatBot</span>
             </a>
             <a href="" class="nav-item">
@@ -116,6 +116,18 @@
               Save Today's Mood
             </button>
           </form>
+          <!-- result area: populated after user submits their mood -->
+          <div
+            id="moodResult"
+            class="mood-result"
+            style="display: none; margin-top: 16px"
+          >
+            <h4>Recent Mood History</h4>
+            <hr />
+            <p><strong>Date & Time:</strong> <span id="resultDate"></span></p>
+            <p><strong>Mood:</strong> <span id="resultMood"></span></p>
+            <p><strong>Notes:</strong> <span id="resultNote"></span></p>
+          </div>
         </div>
 
         <div class="emergency-banner">
@@ -157,6 +169,50 @@
         } catch (e) {
           el.textContent = now.toLocaleDateString("en-US", options);
         }
+      })();
+    </script>
+    <script>
+      (function () {
+        const moodButtons = document.querySelectorAll(".mood-button");
+        const form = document.getElementById("moodForm");
+        const noteEl = document.getElementById("moodNote");
+        const resultWrapper = document.getElementById("moodResult");
+        const resultMood = document.getElementById("resultMood");
+        const resultNote = document.getElementById("resultNote");
+
+        if (!form || moodButtons.length === 0) return;
+
+        // Toggle selection on mood buttons
+        moodButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            moodButtons.forEach((b) => b.classList.remove("selected"));
+            this.classList.add("selected");
+          });
+        });
+
+        // Handle submit: prevent actual navigation and show the chosen mood + note
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          const selected = document.querySelector(".mood-button.selected");
+          const mood = selected ? selected.getAttribute("data-mood") : null;
+          const note = noteEl ? noteEl.value.trim() : "";
+
+          if (!mood) {
+            alert("Please select a mood before submitting.");
+            return;
+          }
+
+          // Populate result area
+          resultMood.textContent = mood.charAt(0).toUpperCase() + mood.slice(1);
+          resultNote.textContent = note || "—";
+
+          const now = new Date();
+          resultDate.textContent = now.toLocaleString();
+          resultWrapper.style.display = "block";
+
+          // Optionally: keep the form visible or hide it
+          form.style.display = 'none';
+        });
       })();
     </script>
   </body>
