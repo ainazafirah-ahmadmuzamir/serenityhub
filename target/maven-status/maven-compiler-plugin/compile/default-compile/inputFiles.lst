@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\dao\CounsellingRequestDAO.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\dao\FeaturedTopicDAO.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\model\CounsellingSession.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\model\Article.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\model\FeaturedTopic.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\dao\ArticleDAO.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\dao\CounsellingSessionDAO.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\AdminCounsellingServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\LogoutServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\repo\UserRepo.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\HomeServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\SignupServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\CounsellingServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\model\User.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\model\CounsellingRequest.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\util\DatabaseConnection.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\EducationalResourcesServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\LoginServlet.java
+C:\Users\User\InternetProgramming\project\serenityhub\src\main\java\com\serenityhub\controller\AdminArticleServlet.java
+=======
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\LoginServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\model\CounsellingRequest.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\CounsellingServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\model\User.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\HomeServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\SignupServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\EducationalResourcesServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\model\FeaturedTopic.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\repo\UserRepo.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\controller\LogoutServlet.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\model\Article.java
+C:\xampp\htdocs\serenityhub\src\main\java\com\serenityhub\model\CounsellingSession.java
+>>>>>>> 6777bbfcf71b9e8bba1852af3427da4b47550d81
