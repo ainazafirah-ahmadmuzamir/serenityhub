@@ -9,14 +9,17 @@ public class CounsellingRequest {
     private String description;
     private String preferredDate;
     private String preferredTime;
-    private String status; // submitted, viewed, confirmed, ongoing, completed
+    private String status; // submitted, viewed, confirmed, ongoing, completed, cancelled
     private String submittedDate;
     
     // Assigned counsellor details (after confirmation)
     private String assignedCounsellor;
     private String assignedCounsellorImage;
+    private int assignedSessionId;  // Added
     private String confirmedDate;
     private String confirmedTime;
+    private String googleMeetLink;  // Added
+    private String adminNotes;  // Added
 
     public CounsellingRequest() {}
 
@@ -60,7 +63,11 @@ public class CounsellingRequest {
 
     public String getAssignedCounsellorImage() { return assignedCounsellorImage; }
     public void setAssignedCounsellorImage(String assignedCounsellorImage) { 
-        this.assignedCounsellorImage = assignedCounsellorImage; 
+        this.assignedCounsellorImage = assignedCounsellorImage; }
+
+    public int getAssignedSessionId() { return assignedSessionId; }
+    public void setAssignedSessionId(int assignedSessionId) { 
+        this.assignedSessionId = assignedSessionId; 
     }
 
     public String getConfirmedDate() { return confirmedDate; }
@@ -68,4 +75,10 @@ public class CounsellingRequest {
 
     public String getConfirmedTime() { return confirmedTime; }
     public void setConfirmedTime(String confirmedTime) { this.confirmedTime = confirmedTime; }
+
+    public String getGoogleMeetLink() { return googleMeetLink; }
+    public void setGoogleMeetLink(String googleMeetLink) { this.googleMeetLink = googleMeetLink; }
+
+    public String getAdminNotes() { return adminNotes; }
+    public void setAdminNotes(String adminNotes) { this.adminNotes = adminNotes; }
 }

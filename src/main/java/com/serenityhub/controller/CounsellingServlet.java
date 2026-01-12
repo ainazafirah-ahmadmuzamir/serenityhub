@@ -1,11 +1,10 @@
 package com.serenityhub.controller;
 
-import com.serenityhub.model.CounsellingSession;
+import com.serenityhub.dao.CounsellingRequestDAO;
+import com.serenityhub.dao.CounsellingSessionDAO;
 import com.serenityhub.model.CounsellingRequest;
+import com.serenityhub.model.CounsellingSession;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,29 +16,13 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/counselling")
 public class CounsellingServlet extends HttpServlet {
     
-    // Simulated database - replace with actual database in production
-    private static List<CounsellingSession> availableSessions = new ArrayList<>();
-    private static List<CounsellingRequest> userRequests = new ArrayList<>();
-    private static int requestIdCounter = 1;
+    private CounsellingSessionDAO sessionDAO;
+    private CounsellingRequestDAO requestDAO;
     
     @Override
     public void init() throws ServletException {
-        // Initialize sample counsellor sessions
-        availableSessions.add(new CounsellingSession(1, "Dr. Norizan", 
-            "images/counsellor1.jpg", "Anxiety & Stress Handling", 
-            "0800 - 1700", "Available", "available", false));
-        
-        availableSessions.add(new CounsellingSession(2, "Dr. Noriman", 
-            "images/counsellor2.jpg", "Depression & Mental Health", 
-            "0800 - 1700", "Available", "available", false));
-        
-        availableSessions.add(new CounsellingSession(3, "Dr. Kalsom", 
-            "images/counsellor3.jpg", "Relationship & Family Counselling", 
-            "1400 - 2300", "Available", "available", false));
-        
-        availableSessions.add(new CounsellingSession(4, "Dr. Doon", 
-            "images/counsellor4.jpg", "Career & Life Coaching", 
-            "2200 - 0700", "Unavailable", "unavailable", false));
+        sessionDAO = new CounsellingSessionDAO();
+        requestDAO = new CounsellingRequestDAO();
     }
     
     @Override
@@ -49,10 +32,16 @@ public class CounsellingServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String action = req.getParameter("action");
         
-        // Get current user's requests (filter by userId in production)
-        List<CounsellingRequest> myRequests = getUserRequests(session);
+        // Get current user ID (replace with actual user ID from session in production)
+        int userId = 1; // TODO: Get from session
         
-        // Get active session (confirmed request)
+        // Get available sessions
+        List<CounsellingSession> availableSessions = sessionDAO.getAvailableSessions();
+        
+        // Get current user's requests
+        List<CounsellingRequest> myRequests = requestDAO.getRequestsByUserId(userId);
+        
+        // Get active session (confirmed or ongoing)
         CounsellingRequest activeSession = getActiveSession(myRequests);
         
         // Set attributes
@@ -62,7 +51,7 @@ public class CounsellingServlet extends HttpServlet {
         
         if ("edit".equals(action)) {
             int requestId = Integer.parseInt(req.getParameter("id"));
-            CounsellingRequest requestToEdit = findRequestById(requestId);
+            CounsellingRequest requestToEdit = requestDAO.getRequestById(requestId);
             req.setAttribute("editRequest", requestToEdit);
         }
         
@@ -93,97 +82,73 @@ public class CounsellingServlet extends HttpServlet {
     
     private void handleRequestSubmission(HttpServletRequest req, HttpSession session) {
         CounsellingRequest request = new CounsellingRequest();
-        request.setId(requestIdCounter++);
-        request.setUserId(1); // Replace with actual user ID from session
-        request.setUserName("Current User"); // Replace with actual username
+        
+        // TODO: Get actual user ID and name from session
+        request.setUserId(1);
+        request.setUserName("Current User");
+        
         request.setCounsellorPreference(req.getParameter("counsellor"));
         request.setConcernType(req.getParameter("concernType"));
         request.setDescription(req.getParameter("description"));
         request.setPreferredDate(req.getParameter("preferredDate"));
-        request.setPreferredTime(req.getParameter("preferredTime"));
+        request.setPreferredTime(req.getParameter("preferredTime") + ":00"); // Add seconds
         request.setStatus("submitted");
-        request.setSubmittedDate(LocalDateTime.now().format(
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
         
-        userRequests.add(request);
+        boolean success = requestDAO.addRequest(request);
         
-        // Simulate automatic confirmation for demo
-        simulateRequestProcessing(request);
+        if (success) {
+            session.setAttribute("successMessage", "Request submitted successfully!");
+        } else {
+            session.setAttribute("errorMessage", "Failed to submit request.");
+        }
     }
     
     private void handleRequestUpdate(HttpServletRequest req) {
         int requestId = Integer.parseInt(req.getParameter("requestId"));
-        CounsellingRequest request = findRequestById(requestId);
+        CounsellingRequest request = requestDAO.getRequestById(requestId);
         
-        if (request != null && !request.getStatus().equals("ongoing")) {
+        if (request != null && ("submitted".equals(request.getStatus()) || "viewed".equals(request.getStatus()))) {
+            request.setCounsellorPreference(req.getParameter("counsellor"));
             request.setConcernType(req.getParameter("concernType"));
             request.setDescription(req.getParameter("description"));
             request.setPreferredDate(req.getParameter("preferredDate"));
-            request.setPreferredTime(req.getParameter("preferredTime"));
+            request.setPreferredTime(req.getParameter("preferredTime") + ":00");
+            
+            requestDAO.updateRequest(request);
         }
     }
     
     private void handleJoinSession(HttpServletRequest req, HttpServletResponse resp) 
             throws IOException {
         int sessionId = Integer.parseInt(req.getParameter("sessionId"));
-        // In production, redirect to actual video conferencing page
-        resp.sendRedirect(req.getContextPath() + "/video-session?id=" + sessionId);
+        CounsellingRequest request = requestDAO.getRequestById(sessionId);
+        
+        if (request != null && request.getGoogleMeetLink() != null) {
+            // Update status to ongoing
+            requestDAO.updateRequestStatus(sessionId, "ongoing");
+            
+            // Redirect to Google Meet link
+            resp.sendRedirect(request.getGoogleMeetLink());
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/counselling");
+        }
     }
     
     private void handleReschedule(HttpServletRequest req) {
         int requestId = Integer.parseInt(req.getParameter("requestId"));
-        CounsellingRequest request = findRequestById(requestId);
+        CounsellingRequest request = requestDAO.getRequestById(requestId);
         
         if (request != null) {
             request.setStatus("submitted");
             request.setPreferredDate(req.getParameter("preferredDate"));
-            request.setPreferredTime(req.getParameter("preferredTime"));
-            simulateRequestProcessing(request);
+            request.setPreferredTime(req.getParameter("preferredTime") + ":00");
+            requestDAO.updateRequest(request);
         }
-    }
-    
-    private void simulateRequestProcessing(CounsellingRequest request) {
-        // Simulate system viewing and confirming request
-        new Thread(() -> {
-            try {
-                Thread.sleep(2000); // Wait 2 seconds
-                request.setStatus("viewed");
-                
-                Thread.sleep(3000); // Wait 3 more seconds
-                request.setStatus("confirmed");
-                
-                // Assign counsellor based on preference
-                CounsellingSession counsellor = availableSessions.stream()
-                    .filter(s -> s.getCounsellorName().equals(request.getCounsellorPreference()))
-                    .findFirst()
-                    .orElse(availableSessions.get(0));
-                
-                request.setAssignedCounsellor(counsellor.getCounsellorName());
-                request.setAssignedCounsellorImage(counsellor.getCounsellorImage());
-                request.setConfirmedDate(request.getPreferredDate());
-                request.setConfirmedTime(request.getPreferredTime());
-                
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
-    
-    private List<CounsellingRequest> getUserRequests(HttpSession session) {
-        // In production, filter by actual user ID
-        return new ArrayList<>(userRequests);
     }
     
     private CounsellingRequest getActiveSession(List<CounsellingRequest> requests) {
         return requests.stream()
             .filter(r -> "confirmed".equals(r.getStatus()) || "ongoing".equals(r.getStatus()))
-            .findFirst()
-            .orElse(null);
-    }
-    
-    private CounsellingRequest findRequestById(int id) {
-        return userRequests.stream()
-            .filter(r -> r.getId() == id)
             .findFirst()
             .orElse(null);
     }

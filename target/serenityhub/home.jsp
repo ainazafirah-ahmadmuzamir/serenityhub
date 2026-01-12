@@ -59,7 +59,7 @@
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="educational-resource.jsp"></a>
+              <a href="<%= request.getContextPath() %>/educational-resources">
                 <div class="action-icon icon-blue"></div>
                 <p>Browse Educational Resources</p>
               </a>
@@ -71,7 +71,7 @@
               </a>
             </div>
             <div class="quick-action-card">
-              <a href="counselling.jsp"></a>
+              <a href="<%= request.getContextPath() %>/counselling">
                 <div class="action-icon icon-green"></div>
                 <p>Book Counselling</p>
               </a>

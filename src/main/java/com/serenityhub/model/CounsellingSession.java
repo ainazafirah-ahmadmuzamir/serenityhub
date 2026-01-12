@@ -6,8 +6,10 @@ public class CounsellingSession {
     private String counsellorImage;
     private String specialty;
     private String timeSlot;
-    private String date;
-    private String status; // available, booked, completed
+    private String sessionDate;  // Changed from date
+    private String sessionTime;  // Added
+    private String googleMeetLink;  // Added
+    private String status; // available, unavailable, booked
     private boolean isActive;
 
     public CounsellingSession() {}
@@ -19,7 +21,7 @@ public class CounsellingSession {
         this.counsellorImage = counsellorImage;
         this.specialty = specialty;
         this.timeSlot = timeSlot;
-        this.date = date;
+        this.sessionDate = date;
         this.status = status;
         this.isActive = isActive;
     }
@@ -40,12 +42,22 @@ public class CounsellingSession {
     public String getTimeSlot() { return timeSlot; }
     public void setTimeSlot(String timeSlot) { this.timeSlot = timeSlot; }
 
-    public String getDate() { return date; }
-    public void setDate(String date) { this.date = date; }
+    public String getSessionDate() { return sessionDate; }
+    public void setSessionDate(String sessionDate) { this.sessionDate = sessionDate; }
+
+    public String getSessionTime() { return sessionTime; }
+    public void setSessionTime(String sessionTime) { this.sessionTime = sessionTime; }
+
+    public String getGoogleMeetLink() { return googleMeetLink; }
+    public void setGoogleMeetLink(String googleMeetLink) { this.googleMeetLink = googleMeetLink; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
     public boolean isActive() { return isActive; }
     public void setActive(boolean active) { isActive = active; }
+    
+    // For backward compatibility
+    public String getDate() { return sessionDate; }
+    public void setDate(String date) { this.sessionDate = date; }
 }
